@@ -59,6 +59,7 @@ class MultiplayerGameSession:
         self._engine = ScopaEngine()
         self._state: Optional[GameState] = None
         self._round_number = 0
+        self._first_player_index = 0          # alternates each round
         self.cumulative_scores: dict[str, int] = {pid: 0 for pid in player_ids}
         self.round_history: list[dict] = []
 
@@ -68,12 +69,19 @@ class MultiplayerGameSession:
         """Load a fresh deck, shuffle it, deal initial cards, and begin play."""
         self._round_number += 1
         round_seed = (self.seed + self._round_number) if self.seed is not None else None
+        # Rotate player list so the starting player alternates each round
+        rotated_ids = (
+            self.player_ids[self._first_player_index:] +
+            self.player_ids[:self._first_player_index]
+        )
         cards = self._load_web_cards()
         self._state = self._engine.create_game(
             cards,
-            self.player_ids,
+            rotated_ids,
             seed=round_seed,
         )
+        # Next round the other player starts
+        self._first_player_index = (self._first_player_index + 1) % len(self.player_ids)
 
     def _load_web_cards(self) -> list[Card]:
         """
