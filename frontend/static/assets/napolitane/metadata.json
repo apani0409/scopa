@@ -1,0 +1,13 @@
+{
+    "display_name": "Napoletane",
+    "origin": "Naples, Italy",
+    "aspect_ratio": 1.8,
+    "artwork_variant": "default",
+    "description": "Traditional 40-card Neapolitan deck. One of the most widely used Italian regional decks, featuring suits of Bastoni (clubs), Coppe (cups), Oro (coins), and Spade (swords).",
+
+    "_comment_extensions": "Keys below are ignored by the current engine but reserved for future use.",
+    "card_back_image": "back.png",
+    "min_players": 2,
+    "max_players": 4,
+    "rules_url": "https://en.wikipedia.org/wiki/Scopa"
+}

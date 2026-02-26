@@ -1,0 +1,9 @@
+services:
+  - type: web
+    name: scopa
+    runtime: docker
+    dockerfilePath: ./Dockerfile
+    # Free tier sleeps after 15 min of inactivity.
+    # Upgrade to "starter" ($7/mo) for always-on + no cold starts.
+    plan: free
+    healthCheckPath: /health
