@@ -1,0 +1,29 @@
+# Python
+.venv/
+venv/
+env/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+dist/
+build/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Node / SvelteKit
+frontend/node_modules/
+frontend/.svelte-kit/
+frontend/build/
+
+# Env / secrets
+.env
+.env.*
+!.env.example
+
+# OS
+.DS_Store
+Thumbs.db
